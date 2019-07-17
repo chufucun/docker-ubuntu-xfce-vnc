@@ -1,0 +1,24 @@
+version: '3.3'
+
+services:
+  desktop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # use /opt as workdir for restore
+    volumes:
+      - ./data:/opt/
+    ports:
+      - "6906:6901"
+      - "5906:5901"
+    environment:
+      - VNC_RESOLUTION=1536x864
+      - VNC_PW=${ADMIN_PASSWORD:-admin}
+
+    # for development and debugging.
+    cap_add:
+      - SYS_TIME
+      - SYS_PTRACE
+
+    sysctls:
+      - net.ipv4.ip_forward=1
