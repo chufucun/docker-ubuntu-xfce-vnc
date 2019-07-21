@@ -1,7 +1,7 @@
 # docker-ubuntu-xfce-vnc
 Collection of Docker images with VNC environments for development
 
-this is a extra version of [docker-headless-vnc-container](https://github.com/ConSol/docker-headless-vnc-container).
+this is a extend version of [docker-headless-vnc-container](https://github.com/ConSol/docker-headless-vnc-container).
 
 For details, see [Dockerfile](./Dockerfile) 
 
