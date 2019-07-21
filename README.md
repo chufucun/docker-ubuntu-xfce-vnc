@@ -18,6 +18,12 @@ docker-compose up -d
 
 please modify [Dockerfile](./Dockerfile)  line 21
  
+### 3) init development script
 
+Init timezone,jdk,ant,maven ..., see [init_dev.sh](./init_dev.sh)  
+
+```
+sh init_dev.sh
+```
 
 
