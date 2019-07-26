@@ -11,7 +11,7 @@ RUN sed -i 's#http://security.ubuntu.com/#https://mirrors.tuna.tsinghua.edu.cn/#
 
 ## Install a gedit sudo htop
 RUN apt-get update \
-    && apt-get install language-pack-zh-hans sudo htop -y \
+    && apt-get install language-pack-zh-hans sudo htop curl -y \
     && apt-get clean -y
 
 # Use default wallpaper
