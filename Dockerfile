@@ -21,6 +21,7 @@ RUN sed -i 's/\/headless\/.config\/bg_sakuli.png/\/usr\/share\/backgrounds\/xfce
 ENV USERNAME=impdev PASSWORD=impdev
 RUN useradd -d $HOME --shell /bin/bash --user-group --groups adm,sudo ${USERNAME}\
     && echo "$USERNAME:$PASSWORD" | chpasswd
+RUN echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN unset PASSWORD
 
 # Add aliases
