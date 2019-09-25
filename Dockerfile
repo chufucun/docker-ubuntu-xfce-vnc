@@ -6,12 +6,11 @@ ENV REFRESHED_AT 2019-07-15
 USER 0
 
 # Use mirrors
-RUN sed -i 's#http://archive.ubuntu.com/#https://mirrors.tuna.tsinghua.edu.cn/#' /etc/apt/sources.list;
-RUN sed -i 's#http://security.ubuntu.com/#https://mirrors.tuna.tsinghua.edu.cn/#' /etc/apt/sources.list;
+RUN sed -i -e 's#http://archive.ubuntu.com/#https://mirrors.tuna.tsinghua.edu.cn/#' -i -e 's#http://security.ubuntu.com/#https://mirrors.tuna.tsinghua.edu.cn/#'  /etc/apt/sources.list;
 
 ## Install a gedit sudo htop
 RUN apt-get update \
-    && apt-get install language-pack-zh-hans sudo htop curl -y \
+    && apt-get install language-pack-zh-hans sudo htop curl openssh-server -y \
     && apt-get clean -y
 
 # Use default wallpaper
@@ -21,6 +20,7 @@ RUN sed -i 's/\/headless\/.config\/bg_sakuli.png/\/usr\/share\/backgrounds\/xfce
 ENV USERNAME=impdev PASSWORD=impdev
 RUN useradd -d $HOME --shell /bin/bash --user-group --groups adm,sudo ${USERNAME}\
     && echo "$USERNAME:$PASSWORD" | chpasswd
+RUN echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN unset PASSWORD
 
 # Add aliases
