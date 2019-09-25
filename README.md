@@ -16,13 +16,15 @@ docker-compose up -d
 
 ### 2) custom username and password
 
-please modify [Dockerfile](./Dockerfile)  line 21
+If you want to change the password, please modify [Dockerfile#L20](https://github.com/chufucun/docker-ubuntu-xfce-vnc/blob/057cd8b531c220c296fcbb1e850681e272a1e3be/Dockerfile#L20)
  
 ### 3) init development script
 
 Init timezone,jdk,ant,maven ..., see [init_dev.sh](./init_dev.sh)  
 
 ```
+./login.sh
+cd /opt
 sh init_dev.sh
 ```
 
